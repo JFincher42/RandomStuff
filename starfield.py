@@ -11,9 +11,9 @@ import pygame
 
 pygame.init()
 
-# Set the window width and height here - everything is baased on this
+# Set the window width and height here - everything is based on this
 WIDTH = 600
-HEIGHT = 300
+HEIGHT = 600
 
 w = pygame.display.set_mode([WIDTH, HEIGHT])
 clock = pygame.time.Clock()
@@ -24,7 +24,7 @@ centery = HEIGHT/2
 
 # List of star points
 stars = []
-STARCOUNT = 100
+STARCOUNT = 125
 
 # Each star consists of three numbers:
 # * An angle in radians which determines the path,
@@ -83,7 +83,7 @@ while running:
 
             # Next, figure out the size - it's bigger the further out it gets
             # This gives us the illusion of flyng through
-            size = hyp
+            size =int(hyp*1.3)
             if size<1:
                 size = 1
 
