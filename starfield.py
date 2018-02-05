@@ -12,7 +12,7 @@ import pygame
 pygame.init()
 
 # Set the window width and height here - everything is based on this
-WIDTH = 600
+WIDTH = 1000
 HEIGHT = 600
 
 w = pygame.display.set_mode([WIDTH, HEIGHT])
@@ -24,7 +24,7 @@ centery = HEIGHT/2
 
 # List of star points
 stars = []
-STARCOUNT = 200
+STARCOUNT = 300
 
 # Each star consists of three numbers:
 # * An angle in radians which determines the path,
@@ -78,9 +78,12 @@ while running:
         else:
             # First, figure out the color - it's greyer the closer to center it is
             # This is done so the stars fly in rather than just appear
-            color = int(star[1]*255/30)
+            # Also add some glitter for stars that are further away
+            color = int(star[1]*255/128)+random.randint(-20,20)
             if color>255:
                 color=255
+            if color<0:
+                color=0
 
             # Next, figure out the size - it's bigger the further out it gets
             # This gives us the illusion of flying through the starts
@@ -94,4 +97,4 @@ while running:
     
     # Flip the display and setup our framerate
     pygame.display.flip()
-    clock.tick(30)
+    clock.tick(60)
