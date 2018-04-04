@@ -9,7 +9,7 @@ import random
 import math
 import pygame
 
-pygame.init()
+pygame.init()                                   # pylint: disable=E1101
 
 # Set the window width and height here - everything is based on this
 WIDTH = 1000
@@ -43,7 +43,7 @@ running = True
 while running:
     
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT:           # pylint: disable=E1101
             running = False
     
     # Fill the window with dark blue
